@@ -1,2 +1,2 @@
 FROM nginx
-COPY ./defalut.conf /etc/nginx/conf.d/defalut.conf
+COPY ./default.conf /etc/nginx/conf.d/default.conf
