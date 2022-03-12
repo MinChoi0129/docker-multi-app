@@ -16,6 +16,7 @@ services:
       context: ./nginx
     ports:
       - "3000:80"
+      
   backend:
     build:
       dockerfile: Dockerfile.dev
