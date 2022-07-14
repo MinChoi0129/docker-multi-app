@@ -1,1 +1,2 @@
-mysql_data
+/backend/node_modules
+/frontend/node_modules

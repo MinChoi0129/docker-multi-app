@@ -38,7 +38,7 @@
 }
 
 .container {
-  width: 375px;
+  width: 350px;
 }
 
 form.example input {
@@ -50,11 +50,11 @@ form.example input {
   background: #f1f1f1;
 }
 
-form.example button {
+form.exmaple button {
   float: left;
   width: 20%;
   padding: 10px;
-  background: #2196F3;
+  background: #2196f3;
   color: white;
   font-size: 17px;
   border: 1px solid grey;
@@ -62,8 +62,8 @@ form.example button {
   cursor: pointer;
 }
 
-form.example button.hover {
-  background: #0b7dda;
+form.example button:hover {
+  background: #0b8dda;
 }
 
 form.example::after {
