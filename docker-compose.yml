@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+
+  frontend:
+    image: leeminjae0129/docker-frontend
+    volumes:
+      - /app/node_modules
+      - ./frontend:/app
+    stdin_open: true
+
+  nginx:
+    restart: always
+    image: leeminjae0129/docker-nginx
+    ports:
+      - "80:80"
+
+  backend:
+    image: leeminjae0129/docker-backend
+    container_name: app_backend
+    volumes:
+      - /app/node_modules
+      - ./backend:/app
+    environment:
+      - MYSQL_HOST=$MYSQL_HOST
+      - MYSQL_USER=$MYSQL_USER
+      - MYSQL_ROOT_PASSWORD=$MYSQL_ROOT_PASSWORD
+      - MYSQL_DATABASE=$MYSQL_DATABASE
+      - MYSQL_PORT=$MYSQL_PORT
