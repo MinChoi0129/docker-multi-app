@@ -1,0 +1,16 @@
+language: generic
+sudo: required
+services:
+  - docker
+before_install:
+  - docker build -t leeminjae0129/final-multi-app -f ./frontend/Dockerfile.dev ./frontend
+script:
+  - docker run -e CI=true leeminjae0129/final-multi-app npm test
+after_success:
+  - docker build -t leeminjae0129/docker-frontend ./frontend
+  - docker build -t leeminjae0129/docker-backend ./backend
+  - docker build -t leeminjae0129/docker-nginx ./nginx
+  - echo "$DOCKER_HUB_PASSWORD" | docker login -u "DOCKER_HUB_ID" --password-stdin
+  - docker push leeminjae0129/docker-frontend
+  - docker push leeminjae0129/docker-backend
+  - docker push leeminjae0129/docker-nginx
